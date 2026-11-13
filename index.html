@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSF FASHION | Premium Fashion Store</title>
+  <meta name="description" content="Discover premium fashion at JSF FASHION.">
+  <meta name="theme-color" content="#080808">
+  <link rel="stylesheet" href="style.css?v=15">
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="brand">JSF <span>FASHION</span></a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#home">Home</a><a href="#products">Collection</a><a href="#contact">Contact</a>
+      <a href="#cart">Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero" id="home" aria-label="JSF FASHION featured collection">
+      <div class="hero-slides" id="hero-slides" aria-live="polite"></div>
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <p class="eyebrow">THE NEW FASHION EXPERIENCE</p>
+        <h1>STYLE THAT<br><span>DEFINES YOU.</span></h1>
+        <p>Discover your style with the latest fashion collection.</p>
+        <a class="btn" href="#products">SHOP COLLECTION</a>
+      </div>
+      <button class="hero-arrow hero-prev" id="hero-prev" type="button" aria-label="Previous banner">‹</button>
+      <button class="hero-arrow hero-next" id="hero-next" type="button" aria-label="Next banner">›</button>
+      <div class="hero-dots" id="hero-dots" aria-label="Banner slides"></div>
+    </section>
+    <section class="section">
+      <div class="section-title"><p class="eyebrow">EXPLORE OUR STYLE</p><h2>OUR COLLECTION</h2></div>
+      <div class="category-grid" id="category-grid">
+        <a class="category-card" href="#products" data-category="T-Shirts">T-Shirts</a>
+        <a class="category-card" href="#products" data-category="Shirts">Shirts</a>
+        <a class="category-card" href="#products" data-category="Pants">Pants & Jeans</a>
+        <a class="category-card" href="#products" data-category="Men's Fashion">Men's Fashion</a>
+        <a class="category-card" href="#products" data-category="Women's Fashion">Women's Fashion</a>
+        <a class="category-card" href="#products" data-category="Saree">Saree</a>
+        <a class="category-card" href="#products" data-category="Three Piece">Three Piece</a>
+        <a class="category-card" href="#products" data-category="Hoodie & Sweatshirt">Hoodie & Sweatshirt</a>
+        <a class="category-card" href="#products" data-category="Panjabi">Panjabi</a>
+        <a class="category-card" href="#products" data-category="Kids & Baby">Kids & Baby</a>
+        <a class="category-card" href="#products" data-category="Jackets">Jackets</a>
+        <a class="category-card" href="#products" data-category="Shoes & Sandals">Shoes & Sandals</a>
+        <a class="category-card" href="#products" data-category="Bags">Bags</a>
+        <a class="category-card" href="#products" data-category="Fashion Accessories">Fashion Accessories</a>
+        <a class="category-card" href="#products" data-category="Perfume">Perfume</a>
+        <a class="category-card" href="#products" data-category="Gift">Gift</a>
+        <a class="category-card" href="#products" data-category="New Arrivals">New Arrivals</a>
+      </div>
+    </section>
+    <section class="section" id="products">
+      <div class="section-title"><p class="eyebrow">HANDPICKED FOR YOU</p><h2>FEATURED PRODUCTS</h2></div>
+      <input id="product-search" class="search-box" type="search" placeholder="Search products..." aria-label="Search products">
+      <div id="product-list" class="product-grid"><p class="muted">Loading products...</p></div>
+    </section>
+    <section class="section" id="cart">
+      <div class="section-title"><h2>YOUR CART</h2><p>Review your selected items before checkout.</p></div>
+      <div class="cart-box">
+        <div id="cart-items"></div>
+        <h3 class="cart-total">Total: ৳<span id="cart-total">0</span></h3>
+        <button class="btn" id="checkout-open" type="button">PROCEED TO CHECKOUT</button>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer" id="contact">
+    <a href="#home" class="brand">JSF <span>FASHION</span></a>
+    <p>Premium fashion. Timeless style.</p>
+    <p>© <span id="year"></span> JSF FASHION. All rights reserved.</p>
+  </footer>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+  <script src="firebase.js?v=3"></script>
+  <script src="store.js?v=23"></script>
+</body>
+</html>

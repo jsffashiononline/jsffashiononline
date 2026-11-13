@@ -1,0 +1,333 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <title>JSF FASHION | Admin Panel</title>
+  <link rel="stylesheet" href="admin.css?v=4">
+</head>
+<body>
+
+<header class="admin-header">
+  <a class="brand" href="admin.html">
+    JSF <span>FASHION</span>
+  </a>
+  <div class="header-right">
+    <button id="logout-btn" class="btn danger hidden" type="button">
+      Logout
+    </button>
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="login-section" class="panel login-panel">
+    <div class="brand-mark">JSF</div>
+    <h1>Admin Login</h1>
+    <p class="muted">Sign in using your authorized admin account.</p>
+
+    <form id="login-form">
+      <label for="email">Email Address</label>
+      <input
+        id="email"
+        type="email"
+        placeholder="Enter admin email"
+        autocomplete="username"
+        required
+      >
+
+      <label for="password">Password</label>
+      <input
+        id="password"
+        type="password"
+        placeholder="Enter password"
+        autocomplete="current-password"
+        required
+      >
+
+      <button id="login-btn" class="btn gold full" type="submit">
+        LOGIN
+      </button>
+    </form>
+
+    <p id="login-message" class="message" role="alert"></p>
+  </section>
+
+  <section id="dashboard" class="hidden">
+
+    <nav class="admin-page-nav" aria-label="Admin pages">
+      <button type="button" class="admin-nav-btn active" data-page="overview">Overview</button>
+      <button type="button" class="admin-nav-btn" data-page="products">Products</button>
+      <button type="button" class="admin-nav-btn" data-page="orders">Orders</button>
+      <button type="button" class="admin-nav-btn" data-page="banners">Website Banners</button>
+      <button type="button" class="admin-nav-btn" data-page="settings">Settings</button>
+      <button type="button" class="admin-nav-btn" data-page="profile">Admin Profile</button>
+    </nav>
+
+    <section id="page-profile" class="admin-page hidden">
+      <section class="panel admin-profile-panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">ACCOUNT DETAILS</p>
+            <h2>Admin Profile</h2>
+          </div>
+        </div>
+        <div class="admin-profile-avatar">JSF</div>
+        <p class="muted">Logged in admin account</p>
+        <div class="admin-profile-detail">
+          <span>Gmail / Email Address</span>
+          <strong id="admin-email"></strong>
+        </div>
+        <div class="admin-profile-detail">
+          <span>Account Status</span>
+          <strong class="profile-active">Authorized Admin</strong>
+        </div>
+      </section>
+    </section>
+
+    <section id="page-overview" class="admin-page">
+    <div class="welcome">
+      <div>
+        <p class="eyebrow">CONTROL CENTER</p>
+        <h1>Admin Dashboard</h1>
+        <p class="muted">Manage your JSF FASHION store.</p>
+      </div>
+      <span class="live-status">● Connected</span>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span>Total Products</span>
+        <strong id="total-products">0</strong>
+      </div>
+
+      <div class="stat-card">
+        <span>Total Orders</span>
+        <strong id="total-orders">0</strong>
+      </div>
+
+      <div class="stat-card">
+        <span>Pending Orders</span>
+        <strong id="pending-orders">0</strong>
+      </div>
+
+      <div class="stat-card">
+        <span>Delivered Orders</span>
+        <strong id="delivered-orders">0</strong>
+      </div>
+
+      <div class="stat-card">
+        <span>Total Sales</span>
+        <strong id="total-sales">৳0</strong>
+      </div>
+    </div>
+    </section>
+
+    <section id="page-products" class="admin-page hidden">
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">STORE INVENTORY</p>
+          <h2>Product Management</h2>
+        </div>
+      </div>
+
+      <form id="product-form" class="form-grid">
+        <input type="hidden" id="product-id">
+
+        <div>
+          <label for="product-name">Product Name *</label>
+          <input id="product-name" placeholder="Premium T-Shirt" required>
+        </div>
+
+        <div>
+          <label for="product-price">Price (BDT) *</label>
+          <input
+            id="product-price"
+            type="number"
+            min="0"
+            step="0.01"
+            placeholder="850"
+            required
+          >
+        </div>
+
+        <div>
+          <label for="product-category">Category *</label>
+          <select id="product-category" required>
+            <option value="">Select Category</option>
+            <option value="T-Shirts">T-Shirts</option>
+            <option value="Shirts">Shirts</option>
+            <option value="Pants">Pants</option>
+            <option value="Men's Fashion">Men's Fashion</option>
+            <option value="Women's Fashion">Women's Fashion</option>
+            <option value="Saree">Saree</option>
+            <option value="Three Piece">Three Piece</option>
+            <option value="Hoodie & Sweatshirt">Hoodie & Sweatshirt</option>
+            <option value="Panjabi">Panjabi</option>
+            <option value="Kids & Baby">Kids & Baby</option>
+            <option value="Jackets">Jackets</option>
+            <option value="Shoes & Sandals">Shoes & Sandals</option>
+            <option value="Bags">Bags</option>
+            <option value="Fashion Accessories">Fashion Accessories</option>
+            <option value="Perfume">Perfume</option>
+            <option value="Gift">Gift</option>
+            <option value="New Arrivals">New Arrivals</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="product-image">Image URL *</label>
+          <input
+            id="product-image"
+            type="url"
+            placeholder="https://example.com/image.jpg"
+            required
+          >
+        </div>
+
+        <div class="wide">
+          <label for="product-sizes">Available Sizes</label>
+          <input id="product-sizes" placeholder="S, M, L, XL, XXL">
+        </div>
+
+        <div class="wide">
+          <label for="product-description">Description</label>
+          <textarea
+            id="product-description"
+            rows="4"
+            placeholder="Product details..."
+          ></textarea>
+        </div>
+
+        <div class="wide button-row">
+          <button id="save-product-btn" class="btn gold" type="submit">
+            SAVE PRODUCT
+          </button>
+
+          <button id="cancel-edit" class="btn secondary" type="button">
+            CLEAR FORM
+          </button>
+        </div>
+      </form>
+
+      <p id="product-message" class="message" role="status"></p>
+      <div id="admin-products" class="data-list">Loading products...</div>
+    </section>
+    </section>
+
+    <section id="page-orders" class="admin-page hidden">
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">CUSTOMER PURCHASES</p>
+          <h2>Customer Orders</h2>
+        </div>
+      </div>
+
+      <div id="admin-orders" class="data-list">Loading orders...</div>
+    </section>
+    </section>
+
+    <section id="page-banners" class="admin-page hidden">
+    <section class="panel">
+      <div class="section-heading"><div><p class="eyebrow">HOMEPAGE SLIDESHOW</p><h2>Top Banner Images</h2></div></div>
+      <p class="muted">গ্যালারি থেকে একাধিক ছবি নির্বাচন করুন। আপলোড করা ছবিগুলো ওয়েবসাইটের উপরে ৪.৫ সেকেন্ড পরপর পরিবর্তন হবে।</p>
+      <label for="banner-image-files">Choose Banner Images</label>
+      <input id="banner-image-files" type="file" accept="image/jpeg,image/png,image/webp" multiple>
+      <button id="upload-banner-images" class="btn gold" type="button" style="margin-top:14px">UPLOAD SELECTED IMAGES</button>
+      <p id="banner-upload-message" class="message" role="status"></p>
+      <div id="banner-image-list" class="banner-image-list"></div>
+    </section>
+    </section>
+
+    <section id="page-settings" class="admin-page hidden">
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">STORE CONFIGURATION</p>
+          <h2>Store Settings</h2>
+        </div>
+      </div>
+
+      <form id="settings-form">
+        <label for="bkash-number">bKash Number</label>
+        <input id="bkash-number" type="text" placeholder="01XXXXXXXXX">
+
+        <label for="nagad-number">Nagad Number</label>
+        <input id="nagad-number" type="text" placeholder="01XXXXXXXXX">
+
+        <label for="store-picture">Store Profile Picture URL</label>
+        <input
+          id="store-picture"
+          type="url"
+          placeholder="https://example.com/store.jpg"
+        >
+
+        <label for="whatsapp-admin-1">WhatsApp Number — Admin 1</label>
+        <input
+          id="whatsapp-admin-1"
+          type="tel"
+          inputmode="tel"
+          maxlength="20"
+          placeholder="+8801XXXXXXXXX"
+        >
+
+        <label for="whatsapp-admin-2">WhatsApp Number — Admin 2</label>
+        <input
+          id="whatsapp-admin-2"
+          type="tel"
+          inputmode="tel"
+          maxlength="20"
+          placeholder="+8801XXXXXXXXX"
+        >
+
+        <button class="btn gold" type="submit">SAVE SETTINGS</button>
+      </form>
+
+      <p id="settings-message" class="message" role="status"></p>
+    </section>
+    </section>
+
+  </section>
+</main>
+
+<footer class="admin-footer">
+  JSF FASHION ADMIN PANEL
+</footer>
+
+<script>
+  // Page navigation only: existing admin functions and Firebase data remain untouched.
+  document.querySelectorAll(".admin-nav-btn").forEach((button) => {
+    button.addEventListener("click", () => {
+      const target = button.dataset.page;
+      document.querySelectorAll(".admin-page").forEach((page) => {
+        page.classList.toggle("hidden", page.id !== "page-" + target);
+      });
+      document.querySelectorAll(".admin-nav-btn").forEach((item) => {
+        const active = item === button;
+        item.classList.toggle("active", active);
+        item.setAttribute("aria-current", active ? "page" : "false");
+      });
+    });
+  });
+</script>
+
+<script type="module">
+  import("./admin.js?v=11").catch((error) => {
+    const message = document.getElementById("login-message");
+
+    if (message) {
+      message.textContent =
+        "JavaScript Load Error: " + error.message;
+      message.style.color = "#ff5555";
+    }
+
+    console.error("Admin JS Error:", error);
+  });
+</script>
+
+</body>
+</html>
